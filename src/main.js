@@ -15,13 +15,18 @@ function updateClassroom(metrics,events){
 let game, loading = false, toastTimer;
 const rotateButton=$('rotate-button');
 rotateButton.onclick=async()=>{
+  // Facebook's in-app browser may reject fullscreen while still allowing the
+  // orientation request. Try the lock first and keep fullscreen optional.
   try {
-    if(!document.fullscreenElement&&document.documentElement.requestFullscreen)await document.documentElement.requestFullscreen();
     if(!screen.orientation?.lock)throw new Error('orientation lock unavailable');
     await screen.orientation.lock('landscape');
+    $('rotate-help').textContent='Đã chuyển sang màn hình ngang. Nếu màn hình chưa xoay, hãy bật Tự động xoay trên điện thoại.';
   } catch {
-    $('rotate-help').textContent='Trình duyệt chưa cho khóa hướng. Hãy bật xoay màn hình trên điện thoại rồi xoay máy sang ngang.';
+    $('rotate-help').textContent='Facebook có thể chặn xoay màn hình trong ứng dụng. Hãy bật Tự động xoay trên điện thoại và xoay máy; nếu vẫn chưa được, mở menu ⋯ rồi chọn Mở trong trình duyệt.';
   }
+  try {
+    if(!document.fullscreenElement&&document.documentElement.requestFullscreen)await document.documentElement.requestFullscreen();
+  } catch { /* Fullscreen is optional, especially in in-app browsers. */ }
 };
 let dialogueState=null;
 function dialogueTick(dt){

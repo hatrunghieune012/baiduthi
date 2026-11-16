@@ -183,6 +183,23 @@
  .scene-board{right:9%;width:62%;height:42%}.scene-board b{font-size:clamp(28px,8vw,44px)}
  .scene-desk{left:9%;right:9%}.laptop{left:27%;width:38%}
 }
+/* Keep the landing screen within the short viewport on phones held sideways. */
+@media (pointer:coarse) and (orientation:landscape) and (max-width:900px){
+ #menu.home-page{height:100svh;min-height:100svh;overflow:hidden;padding:0 max(18px,env(safe-area-inset-left)) 0 max(18px,env(safe-area-inset-right))}
+ #menu.home-page .home-header{height:58px;min-height:58px;padding-top:env(safe-area-inset-top)}
+ #menu.home-page .home-hero{height:calc(100svh - 98px - env(safe-area-inset-top) - env(safe-area-inset-bottom));min-height:0;padding:8px 0 10px;display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:12px;align-items:center}
+ #menu.home-page .home-intro{min-width:0;padding:0 0 0 4px}
+ #menu.home-page h1{font-size:clamp(27px,6.2vh,42px);letter-spacing:-1.5px;line-height:1;margin:8px 0}
+ #menu.home-page .eyebrow{font-size:9px;line-height:1.2}
+ #menu.home-page .home-tagline{font-size:clamp(13px,3.4vh,17px);margin-bottom:5px}
+ #menu.home-page .intro>p.home-description{font-size:clamp(11px,2.8vh,14px);line-height:1.35}
+ #menu.home-page .home-start{min-width:0;width:100%;margin:10px 0 6px;padding:10px 12px;font-size:clamp(13px,3.4vh,16px);border-radius:12px}
+ #menu.home-page .room-scene{position:relative;inset:auto;width:100%;height:100%;min-height:0;max-height:none;margin:0;align-self:stretch}
+ #menu.home-page .home-footer{height:40px;min-height:40px;margin:0;padding:8px 0;display:flex;justify-content:space-between;gap:8px;font-size:10px;overflow:hidden}
+ #menu.home-page .home-footer>*{white-space:nowrap}
+ .brand-cap{width:36px}.brand .brand-copy{font-size:13px}.header-settings{padding:7px 10px;font-size:11px}
+ .scene-board{border-width:6px}.scene-clock{width:58px;height:58px;border-width:5px}.scene-desk{border-width:5px}
+}
 @media (pointer:coarse){#menu.home-page .controls{font-size:0;gap:0}#menu.home-page .controls>*{display:none}#menu.home-page .controls:after{content:"Điều khiển cảm ứng trong lớp học";font-size:12px;color:#66776d}}
 @media (prefers-reduced-motion:reduce){#menu.home-page *,#menu.home-page *:before,#menu.home-page *:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
 @media(max-height:720px) and (min-width:801px){
