@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#173f39" />
+    <meta name="description" content="Phía Bên Kia Bục Giảng — Beyond the Lectern. Một lần đứng lớp, thấu hiểu muôn điều." />
+    <title>Phía Bên Kia Bục Giảng · Beyond the Lectern</title>
+  </head>
+  <body>
+    <canvas id="world" aria-label="Lớp học 3D góc nhìn thứ nhất"></canvas>
+    <main id="menu" class="overlay home-page">
+      <header class="home-header">
+        <a class="brand" href="./" aria-label="Phía Bên Kia Bục Giảng, trang chủ"><svg class="brand-cap" viewBox="0 0 72 54" aria-hidden="true"><path d="M4 17 34 3l34 11-32 17L4 17Z" fill="#126344"/><path d="m11 22 25 13 24-13v12L36 49 11 36V22Z" fill="#0d513c"/><path d="M59 17v21" stroke="#dfa838" stroke-width="2"/><circle cx="59" cy="40" r="3" fill="#dfa838"/><path d="m16 13 25-6" stroke="#e6b546" stroke-width="2"/></svg><span class="brand-copy">Phía Bên Kia<br>Bục Giảng</span></a>
+        <span class="edition">GAME TRẢI NGHIỆM GIẢNG DẠY</span>
+        <div class="header-tools"><button type="button" id="home-sound" class="header-settings sound-toggle" aria-label="Tắt âm thanh" aria-pressed="true">♫ <span>Âm thanh</span></button><button type="button" id="settings-open" class="header-settings" aria-label="Cài đặt đồ họa">⚙ <span>Cài đặt</span></button></div>
+      </header>
+      <div class="hero home-hero">
+        <section class="intro home-intro">
+          <div class="eyebrow"><span></span> BEYOND THE LECTERN · GAME MÔ PHỎNG</div>
+          <h1>PHÍA BÊN KIA<br><em>BỤC GIẢNG</em></h1>
+          <p class="home-tagline">Một lần đứng lớp, thấu hiểu muôn điều.</p>
+          <p class="home-description">Đứng trên bục giảng, đối mặt với những tình huống không ngờ và khám phá câu chuyện phía sau mỗi tiết học.</p>
+          <button id="start" class="primary home-start"><span aria-hidden="true">▶</span> Bắt đầu trải nghiệm</button>
+          <div class="controls"><span><kbd>W A S D</kbd> Di chuyển</span><span><kbd>CHUỘT</kbd> Nhìn quanh</span><span><kbd>E</kbd> Tương tác</span></div>
+        </section>
+        <section class="postcard room-scene" aria-label="Minh họa lớp học CNTT ấm áp">
+          <div class="scene-window"><i></i><i></i><i></i><i></i><span></span></div>
+          <div class="scene-board"><b>CNTT</b><span>／</span><span class="code-mark">&lt;/&gt;</span><span class="sparkle">✧</span><span class="smile">☺</span><span class="board-code">const className = "CNTT";<br>console.log("Xin chào!");</span></div>
+          <div class="scene-clock" aria-label="Đồng hồ chỉ 10 giờ 10 phút"><span class="clock-number clock-12">12</span><span class="clock-number clock-3">3</span><span class="clock-number clock-6">6</span><span class="clock-number clock-9">9</span><i class="clock-hand clock-minute"></i><i class="clock-hand clock-hour"></i><i class="clock-pin"></i></div>
+          <div class="scene-desk"><div class="desk-top"></div><div class="laptop"><span>◇</span></div><div class="books"><i></i><i></i><i></i></div><div class="mug">♟</div></div>
+          <div class="scene-plant plant-left">❧</div><div class="scene-plant plant-right">❧</div>
+          <div class="wave-line"></div>
+        </section>
+      </div>
+      <footer class="home-footer"><span>✦ &nbsp; Một tiết học nhỏ, một lời tri ân lớn.</span><span class="home-sound-note">♪ Nhạc nền nhẹ nhàng · Bật/tắt ở Âm thanh</span></footer>
+    </main>
+    <div id="rotate-guide" aria-label="Chế độ chơi ngang"><div class="rotate-card"><span class="rotate-icon" aria-hidden="true">↻</span><strong>Xoay ngang điện thoại để chơi</strong><p>Màn hình ngang giúp nhìn rõ lớp học và các nút điều khiển.</p><button type="button" id="rotate-button" class="primary">Chuyển sang màn hình ngang</button><small id="rotate-help">Nếu trình duyệt không tự xoay, hãy bật xoay màn hình trên điện thoại rồi xoay máy.</small></div></div>
+    <section id="hud" hidden>
+      <div class="hud-top"><div class="hud-card"><span class="eyebrow">PHÍA BÊN KIA BỤC GIẢNG</span><strong id="objective">Mở cửa và bước vào lớp học</strong><div id="metrics" aria-label="Mức Stress"><span>Stress <b id="stress">10</b><i id="stress-bar"></i></span></div><small id="event-count">Gây mất tập trung 0/10 · Đã xử lý 0/10</small></div><button id="pause" class="hud-button">Tạm dừng <kbd>Esc</kbd></button></div>
+      <div id="crosshair">+</div><div id="prompt" hidden></div>
+      <div id="touch-controls" aria-label="Điều khiển cảm ứng"><div id="touch-joystick" role="group" aria-label="Cần điều khiển di chuyển"><div id="touch-stick"></div></div><div class="touch-actions"><button type="button" id="touch-stand-up" hidden>Đứng dậy</button><button type="button" id="touch-interact">Tương tác</button></div></div>
+      <div class="hud-bottom"><span id="lesson">Lớp CNTT · Tiết học đầu tiên</span><span>WASD di chuyển · E tương tác · P hiệu năng</span></div>
+    </section>
+    <aside id="stats" hidden aria-label="Thống kê hiệu năng"></aside>
+    <section id="dialogue" hidden aria-label="Hội thoại sinh viên"><div class="dialogue-card"><div class="dialogue-speaker" id="dialogue-speaker"></div><p id="dialogue-text" aria-live="polite"></p><div id="dialogue-choices"></div><button type="button" id="dialogue-next" hidden>Tiếp tục ↗</button></div></section>
+    <div id="toast" role="status" hidden></div>
+    <dialog id="panel"><button id="panel-close" class="close" aria-label="Đóng">×</button><div id="panel-content"></div></dialog>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
